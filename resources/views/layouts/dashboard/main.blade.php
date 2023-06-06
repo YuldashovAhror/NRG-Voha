@@ -4,6 +4,7 @@
     @include('components.dashboard.meta')
     <title>Dashboard</title>
     @include('components.dashboard.styles')
+    @livewireStyles
     @yield('styles')
 </head>
 <body>
@@ -25,7 +26,7 @@
         <div class="page-body">
             <!-- Container-fluid starts-->
             <div class="container-fluid dashboard-default-sec">
-               @yield('content')
+                @yield('content')
             </div>
             <!-- Container-fluid Ends-->
         </div>
@@ -34,6 +35,7 @@
     </div>
 </div>
 @include('components.dashboard.scripts')
+@livewireScripts
 @yield('scripts')
 </body>
 </html>

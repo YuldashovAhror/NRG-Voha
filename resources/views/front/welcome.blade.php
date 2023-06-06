@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="issets/css/owl.carousel.css">
 	<link rel="stylesheet" href="issets/css/animate.css">
 	<link rel="stylesheet" href="issets/css/main.css">
-    @livewireStyles
 	<title>NRG VOHA</title>
 </head>
 <body>
@@ -269,12 +268,13 @@
 				<div class="section-form__form">
 					<div class="section-form__row">
 						<div class="section-form__input">
-							<input type="text" required placeholder="Ваше имя" class="form_name">
+							<input type="text" id="firs_name1"  required placeholder="Ваше имя" class="form_name">
 						</div>
 						<div class="section-form__input">
-							<input type="tel" required placeholder="Телефон" class="form_tel">
+							<input type="tel" id="phone1" required placeholder="Телефон" class="form_tel">
+							<input id="token" value="{{ csrf_token() }}" type="hidden" required>
 						</div>
-						<button class="section-form__btn">
+						<button id="button" onclick="send1()" type="button" class="section-form__btn">
 							Отправить
 							<span>
 								<img src="issets/img/icons/arrow-right.svg" alt="ico">
@@ -522,12 +522,13 @@
 				<div class="section-form__form">
 					<div class="section-form__row">
 						<div class="section-form__input">
-							<input type="text" required placeholder="Ваше имя" class="form_name">
+							<input id="first_name2" type="text" required placeholder="Ваше имя" class="form_name">
 						</div>
 						<div class="section-form__input">
-							<input type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="phone2" type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="token" value="{{ csrf_token() }}" type="hidden" required>
 						</div>
-						<button class="section-form__btn">
+						<button id="button" onclick="send2()" type="button" class="section-form__btn">
 							Отправить
 							<span>
 								<img src="issets/img/icons/arrow-right.svg" alt="ico">
@@ -788,12 +789,13 @@
 				<div class="section-form__form">
 					<div class="section-form__row">
 						<div class="section-form__input">
-							<input type="text" required placeholder="Ваше имя" class="form_name">
+							<input id="first_name3" type="text" required placeholder="Ваше имя" class="form_name">
 						</div>
 						<div class="section-form__input">
-							<input type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="phone3" type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="token" value="{{ csrf_token() }}" type="hidden" required>
 						</div>
-						<button class="section-form__btn">
+						<button id="button" onclick="send3()" type="button" class="section-form__btn">
 							Отправить
 							<span>
 								<img src="issets/img/icons/arrow-right.svg" alt="ico">
@@ -981,12 +983,13 @@
 				<div class="section-form__form">
 					<div class="section-form__row">
 						<div class="section-form__input">
-							<input type="text" required placeholder="Ваше имя" class="form_name">
+							<input id="first_name4" type="text" required placeholder="Ваше имя" class="form_name">
 						</div>
 						<div class="section-form__input">
-							<input type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="phone4" type="tel" required placeholder="Телефон" class="form_tel">
+							<input id="token" value="{{ csrf_token() }}" type="hidden" required>
 						</div>
-						<button class="section-form__btn">
+						<button id="button" onclick="send4()" type="button" class="section-form__btn">
 							Отправить
 							<span>
 								<img src="issets/img/icons/arrow-right-green.svg" alt="ico">
@@ -1287,12 +1290,136 @@
 		</div>
 
 	</footer>
+
+	<script>
+        function send1() {
+
+            let token = $("#token").val();
+            let name = $('#firs_name1').val();
+            let phone = $('#phone1').val();
+            $.ajax({
+                token: token,
+                type: "get",
+                url: "/feedback",
+                data: {
+                    name: name,
+                    phone: phone,
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            });
+            // setTimeout(() => {
+            //     $('.popup').hide()
+            //     $('.popup__success').show()
+            //     $("#first_name").val('');
+            //     $("#phone").val('');
+            // }, 1000)
+            // setTimeout(() => {
+            //     $('.popup').show()
+            //     $('.popup__success').hide()
+            //     $('.feedback').hide()
+            // }, 3000)
+        }
+    </script>
+
+	<script>
+		function send2() {
+
+			let token = $("#token").val();
+			let name = $('#first_name2').val();
+			let phone = $('#phone2').val();
+			$.ajax({
+				token: token,
+				type: "get",
+				url: "/feedback",
+				data: {
+					name: name,
+					phone: phone,
+				},
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+			});
+			// setTimeout(() => {
+			//     $('.popup').hide()
+			//     $('.popup__success').show()
+			//     $("#first_name").val('');
+			//     $("#phone").val('');
+			// }, 1000)
+			// setTimeout(() => {
+			//     $('.popup').show()
+			//     $('.popup__success').hide()
+			//     $('.feedback').hide()
+			// }, 3000)
+		}
+	</script>
+
+	<script>
+		function send3() {
+
+			let token = $("#token").val();
+			let name = $('#first_name3').val();
+			let phone = $('#phone3').val();
+			$.ajax({
+				token: token,
+				type: "get",
+				url: "/feedback",
+				data: {
+					name: name,
+					phone: phone,
+				},
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+			});
+			// setTimeout(() => {
+			//     $('.popup').hide()
+			//     $('.popup__success').show()
+			//     $("#first_name").val('');
+			//     $("#phone").val('');
+			// }, 1000)
+			// setTimeout(() => {
+			//     $('.popup').show()
+			//     $('.popup__success').hide()
+			//     $('.feedback').hide()
+			// }, 3000)
+		}
+	</script>
+
+	<script>
+		function send4() {
+
+			let token = $("#token").val();
+			let name = $('#first_name4').val();
+			let phone = $('#phone4').val();
+			$.ajax({
+				token: token,
+				type: "get",
+				url: "/feedback",
+				data: {
+					name: name,
+					phone: phone,
+				},
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+			});
+			// setTimeout(() => {
+			//     $('.popup').hide()
+			//     $('.popup__success').show()
+			//     $("#first_name").val('');
+			//     $("#phone").val('');
+			// }, 1000)
+			// setTimeout(() => {
+			//     $('.popup').show()
+			//     $('.popup__success').hide()
+			//     $('.feedback').hide()
+			// }, 3000)
+		}
+	</script>
+
 	<script src="issets/js/jquery-3.4.1.min.js"></script>
 	<script src="issets/js/jquery.inputmask.min.js"></script>
 	<script src="issets/js/owl.carousel.js"></script>
 	<script src="issets/js/wow.min.js"></script>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script src="issets/js/main.js"></script>
-    @livewireScripts
 </body>
 </html>

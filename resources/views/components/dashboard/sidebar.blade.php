@@ -24,7 +24,12 @@
                             <li><a href="index.html">Создать</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav" href="jsgrid-table.html"><i data-feather="file-text"></i><span>Link</span></a></li>
+                    <li class="dropdown">
+                        <a href="{{route('dashboard.words.index')}}" class="nav-link menu-title link-nav" >
+                            <i data-feather="file-text"></i>
+                            <span>Словарь</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

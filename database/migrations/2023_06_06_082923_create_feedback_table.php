@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('words', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->text('key');
-            $table->text('word_ru')->nullable();
-            $table->text('word_uz')->nullable();
-            $table->text('word_en')->nullable();
+            $table->string('name');
+            $table->string('phone');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('words');
+        Schema::dropIfExists('feedback');
     }
 };
